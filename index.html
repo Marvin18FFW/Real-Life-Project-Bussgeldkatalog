@@ -152,15 +152,33 @@ const DATA = {
   verkehr: {
     title: "Verkehrsdelikte",
     rows: [
-      ["StVG §5","Geschwindigkeit","Überschreitung",500,"-","-"],
-      ["StVG §6","Fahren unter Einfluss","Alkohol/Drogen",2500,15,"-"]
+      ["StVO §1 Abs. 1", "Fahren ohne FS (PKW)", "Führen eines Pkws ohne gültige Fahrerlaubnis", 3000, 0, "Sperre 1 Woche"],
+      ["StVO §1 Abs. 2", "Fahren ohne FS (LKW)", "Führen eines Lkws ohne gültige Fahrerlaubnis", 5000, 0, "Sperre 1 Woche"],
+      ["StVO §1 Abs. 5", "Fahren ohne Zulassung", "Betrieb eines Fahrzeugs ohne gültige Zulassung", 2750, 0, "Abschleppen"],
+      ["StVO §1 Abs. 6", "Fahren ohne Kennzeichen", "Führen eines Fahrzeugs ohne sichtbare Kennzeichen", 150, 0, "-"],
+      ["StVO §2 Abs. 1", "Falschparken", "Abstellen des Fahrzeugs im Parkverbot", 2500, 0, "-"],
+      ["StVO §2 Abs. 3", "Alkohol am Steuer", "Führen eines Fahrzeugs unter Alkoholeinfluss", 5000, 15, "FS-Entzug 1 Tag"],
+      ["StVO §2 Abs. 4", "Drogen am Steuer", "Führen eines Fahrzeugs unter Drogeneinfluss", 2000, 20, "FS-Entzug 3 Tage"],
+      ["StVO §2 Abs. 6", "Unfall ohne Todesfolge", "Verursachen eines Verkehrsunfalls mit Sachschaden", 3000, 0, "-"],
+      ["StVO §2 Abs. 7", "Fahrerflucht", "Unerlaubtes Entfernen vom Unfallort", 4000, 5, "-"],
+      ["StVO §2 Abs. 8", "Gefährliche Fahrweise", "Rücksichtsloses Verhalten im Straßenverkehr", 3000, 0, "-"],
+      ["StVO §2 Abs. 9", "Missachtung Signale", "Nichtbeachten von Anhalte- oder Sondersignalen", 7500, 0, "-"],
+      ["StVO §2 Abs. 9.1", "Illegales Straßenrennen", "Teilnahme an einem nicht genehmigten Rennen", 12000, 30, "Beschlagnahme"],
+      ["StVO §4 Abs. 2", "Geschwindigkeit (+20-40)", "Überschreiten des Tempolimits um 20-40 km/h", 4000, 0, "-"],
+      ["StVO §4 Abs. 4", "Geschwindigkeit (+70-120)", "Überschreiten des Tempolimits um 70-120 km/h", 7000, 0, "FS-Entzug 5 Tage"]
     ]
   },
   staat: {
     title: "Staatliche Delikte",
     rows: [
-      ["StGB §22","Widerstand","Gegen Beamte",2500,15,"-"],
-      ["StGB §20","Amtsanmaßung","Als Beamter ausgeben",3000,15,10]
+      ["StGB §4 Abs. 1", "Widerstand", "Aktive Gegenwehr gegen Vollstreckungsbeamte", 4500, 15, "-"],
+      ["StGB §4 Abs. 2", "Beamtenbeleidigung", "Ehrverletzende Aussagen gegenüber Beamten", 1500, 0, "-"],
+      ["StGB §4 Abs. 3", "Bestechung", "Versuchte Bestechung eines Amtsträgers", 6000, 20, "-"],
+      ["StGB §4 Abs. 4", "Amtsanmaßung", "Ausgeben als Staatsbeamter ohne Mitgliedschaft", 8000, 20, "-"],
+      ["StGB §4 Abs. 5", "Gefangenenbefreiung", "Gewaltsames Befreien von Personen aus Gewahrsam", 10000, 40, "-"],
+      ["StGB §4 Abs. 6", "Korruption", "Missbrauch von Amtsgewalt durch einen Beamten", 15000, 45, "-"],
+      ["StGB §4 Abs. 7", "Beihilfe zur Flucht", "Unterstützung einer gesuchten Person bei der Flucht", 5000, 15, "-"],
+      ["StGB §4 Abs. 8", "Störung der Amtshandlung", "Behinderung von Beamten bei der Ausübung des Dienstes", 2500, 5, "-"]
     ]
   }
 };
