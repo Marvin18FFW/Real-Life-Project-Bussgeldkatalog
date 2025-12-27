@@ -39,16 +39,14 @@ h1,h2,h3{margin:0}
 .cat.active{background:var(--accent);color:#0f172a}
 input{
   width:100%;
-  padding:10px 14px;
+  padding:8px 10px;
   border-radius:8px;
   border:none;
   margin-bottom:12px;
-  background: #334155;
-  color: white;
 }
 table{width:100%;border-collapse:collapse;font-size:14px}
-th,td{padding:12px 8px;border-bottom:1px solid #334155}
-th{text-align:left; color: var(--accent); text-transform: uppercase; font-size: 12px;}
+th,td{padding:8px;border-bottom:1px solid #334155}
+th{text-align:left}
 .right{text-align:right;white-space:nowrap}
 .muted{color:var(--muted);font-size:13px}
 footer{text-align:center;color:var(--muted);margin-top:20px}
@@ -87,79 +85,61 @@ footer{text-align:center;color:var(--muted);margin-top:20px}
 
 <script>
 /* =====================
-   MDT DATENSTRUKTUR (AKTUALISIERT)
+   MDT DATENSTRUKTUR
 ===================== */
 const DATA = {
-  stvo: {
-    title: "STVO Basis",
+  gewalt: {
+    title: "Gewaltdelikte",
     rows: [
-      ["§1 Abs.1", "Fahren ohne Führerschein (Pkw)", "Sperre 1 Woche", 3000, 0, 0],
-      ["§1 Abs.2", "Fahren ohne Führerschein (Lkw)", "Sperre 1 Woche", 5000, 0, 0],
-      ["§1 Abs.3", "Fahren ohne Führerschein (Motorrad)", "Sperre 1 Woche", 4000, 0, 0],
-      ["§1 Abs.4", "Fahren ohne Bootsschein", "Sperre 1 Woche", 5500, 0, 0],
-      ["§1 Abs.5", "Fahren ohne Zulassung", "Fahrzeug wird abgeschleppt", 2750, 0, 0],
-      ["§1 Abs.6", "Fahren ohne Kennzeichen", "Ermessensspielraum, Geldstrafe Pflicht", 150, 0, 0]
+      ["StGB §3 Abs. 7", "Körperverletzung", "je nach Verletzung", 1000, 10, "-"],
+      ["StGB §3 Abs. 7.1", "Schwere Körperverletzung", "je nach Verletzung", 2000, 15, "-"],
+      ["StGB §3 Abs. 7.2", "Körperverletzung mit Todesfolge", "-", 4500, 25, "-"],
+      ["StGB §3 Abs. 8", "Geiselnahme", "-", 10000, 30, "-"],
+      ["StGB §3 Abs. 8.1", "Beihilfe zur Geiselnahme", "-", 5000, 15, "-"],
+      ["StGB §3 Abs. 9", "Fahrlässige Tötung", "-", 7500, 25, "-"],
+      ["StGB §3 Abs. 10", "Totschlag", "-", 8000, 30, "-"],
+      ["StGB §3 Abs. 11", "Mord", "-", 10000, 60, "-"],
+      ["StGB §3 Abs. 11.1", "Versuchter Mord", "-", 7500, 35, "-"],
+      ["StGB §3 Abs. 11.2", "Mehrfacher Mord", "-", 30000, 90, "-"],
+      ["StGB §3 Abs. 11.3", "Mehrfacher versuchter Mord", "-", 8000, 45, "-"],
+      ["StGB §3 Abs. 6", "Freiheitsberaubung", "-", 10000, 20, "-"],
+      ["StGB §3 Abs. 5", "Unterlassene Hilfeleistung", "-", 500, 5, "-"],
+      ["StGB §3 Abs. 4.1", "Morddrohung", "-", 2500, 10, "-"]
     ]
   },
-  stvo_erweitert: {
-    title: "STVO Verhalten",
+  eigentum: {
+    title: "Eigentumsdelikte",
     rows: [
-      ["§2 Abs.1", "Falschparken", "-", 2500, 0, 0],
-      ["§2 Abs.2", "Behinderung Straßenverkehr", "-", 2500, 0, 0],
-      ["§2 Abs.3", "Alkohol am Steuer (Pkw)", "Ausnüchterung, 1 Tag Entzug", 5000, 15, 0],
-      ["§2 Abs.4", "Drogen am Steuer", "3 Tage Entzug", 2000, 20, 0],
-      ["§2 Abs.6.1", "Unfall mit Todesfolge", "Sachschaden inkl.", 6500, 15, 0],
-      ["§2 Abs.7.1", "Fahrerflucht mit Todesfolge", "-", 10000, 29, 0],
-      ["§2 Abs.9.1", "Illegales Straßenrennen", "Auto wird beschlagnahmt", 12000, 30, 0],
-      ["§2 Abs.9.3", "Schwerer Eingriff Verkehr", "-", 7000, 15, 0]
+      ["StGB §14 Abs.1","Diebstahl","Wegnahme fremder Sachen",3000,10,"-"],
+      ["StGB §15 Abs.1","Raub","Diebstahl mit Gewalt",4000,20,"-"]
     ]
   },
-  luftfahrt: {
-    title: "Luftverkehr",
+  drogen: {
+    title: "Drogendelikte",
     rows: [
-      ["§3 Abs.1", "Fliegen ohne Schein", "Sperre 1 Woche", 5000, 15, 0],
-      ["§3 Abs.2", "Mindestflughöhe unterschritten", "2 Tage Entzug", 8000, 0, 0],
-      ["§3 Abs.5", "Flugverbotszonen", "2 Wochen Entzug", 10000, 15, 0]
-    ]
-  },
-  geschw: {
-    title: "Geschwindigkeit",
-    rows: [
-      ["§4 Abs.1", "5-20 Km/h zu schnell", "-", 2500, 0, 0],
-      ["§4 Abs.2", "20-40 Km/h zu schnell", "-", 4000, 0, 0],
-      ["§4 Abs.3", "40-70 Km/h zu schnell", "-", 5000, 0, 0],
-      ["§4 Abs.4", "70-120 Km/h zu schnell", "5 Tage Entzug", 7000, 0, 0]
-    ]
-  },
-  krim: {
-    title: "Kriminalität",
-    rows: [
-      ["§1 Abs.1", "Diebstahl", "-", 3500, 0, 0],
-      ["§1 Abs.1.1", "Diebstahl Staatseigentum", "-", 5000, 15, 0],
-      ["§1 Abs.2.1", "Diebstahl Einsatzfahrzeug", "-", 7500, 20, 0],
-      ["§1 Abs.6.1", "Bewaffneter Raub", "-", 5000, 45, 0],
-      ["§1 Abs.7", "Bankraub", "Kontopfändung", 7000, 60, 0],
-      ["§1 Abs.14", "Amtsanmaßung", "Als Beamter ausgeben", 8000, 20, 0]
+      ["BtMG §3 Abs.1","Besitz harter Drogen","Illegale Substanzen",3000,15,"-"],
+      ["BtMG §4 Abs.1","Drogenhandel","Handel mit BtM",5000,25,"-"]
     ]
   },
   waffen: {
-    title: "Waffen",
+    title: "Waffendelikte",
     rows: [
-      ["§2 Abs.1", "Besitz Magazine", "Je Magazin 2500$", 2500, 0, 0],
-      ["§2 Abs.2", "Besitz ohne Waffenschein", "1 Woche Sperre", 5250, 15, 0],
-      ["§2 Abs.4", "Offenes Führen einer Waffe", "5 Tage Entzug", 3250, 0, 0],
-      ["§2 Abs.8", "Besitz illegale Langwaffe", "-", 9000, 25, 0]
+      ["WaffG §6 Abs.1","Illegaler Waffenbesitz","Ohne Lizenz",3500,15,"-"],
+      ["WaffG §6 Abs.3","Waffenhandel","Illegaler Handel",8000,35,"-"]
     ]
   },
-  integritaet: {
-    title: "Körper/Mord",
+  verkehr: {
+    title: "Verkehrsdelikte",
     rows: [
-      ["§3 Abs.1", "Beleidigung", "-", 50, 0, 0],
-      ["§3 Abs.2.1", "Sexuelle Belästigung", "Annäherungsverbot 100m", 250, 0, 0],
-      ["§3 Abs.7", "Körperverletzung", "-", 1000, 10, 0],
-      ["§3 Abs.8", "Geiselnahme", "-", 10000, 30, 0],
-      ["§3 Abs.11", "Mord", "-", 10000, 60, 0],
-      ["§3 Abs.11.2", "Mehrfacher Mord", "-", 30000, 90, 0]
+      ["StVG §5","Geschwindigkeit","Überschreitung",500,"-","-"],
+      ["StVG §6","Fahren unter Einfluss","Alkohol/Drogen",2500,15,"-"]
+    ]
+  },
+  staat: {
+    title: "Staatliche Delikte",
+    rows: [
+      ["StGB §22","Widerstand","Gegen Beamte",2500,15,"-"],
+      ["StGB §20","Amtsanmaßung","Als Beamter ausgeben",3000,15,10]
     ]
   }
 };
@@ -171,7 +151,7 @@ const catBox = document.getElementById("categories");
 const tableBox = document.getElementById("table-container");
 const search = document.getElementById("search");
 
-let active = "stvo";
+let active = "gewalt";
 
 Object.keys(DATA).forEach((key,i)=>{
   const btn = document.createElement("button");
@@ -183,44 +163,31 @@ Object.keys(DATA).forEach((key,i)=>{
 
 function update(){
   [...catBox.children].forEach(b=>b.classList.remove("active"));
-  const activeIndex = Object.keys(DATA).indexOf(active);
-  if(activeIndex !== -1) [...catBox.children][activeIndex].classList.add("active");
+  [...catBox.children][Object.keys(DATA).indexOf(active)].classList.add("active");
 
   const q = search.value.toLowerCase();
-  
-  // Wenn Suche leer ist, zeige nur aktive Kategorie. Wenn Suche Text enthält, suche in allen Daten!
-  let rows = [];
-  if(q === "") {
-    rows = DATA[active].rows;
-  } else {
-    Object.keys(DATA).forEach(key => {
-        const filtered = DATA[key].rows.filter(r => 
-            r[0].toLowerCase().includes(q) || 
-            r[1].toLowerCase().includes(q) || 
-            r[2].toLowerCase().includes(q)
-        );
-        rows = rows.concat(filtered);
-    });
-  }
+  const rows = DATA[active].rows.filter(r =>
+    r.join(" ").toLowerCase().includes(q)
+  );
 
   tableBox.innerHTML = `
   <table>
     <thead>
       <tr>
-        <th>§</th><th>Delikt</th><th>Zusatz</th>
+        <th>Paragraph</th><th>Delikt</th><th>Beschreibung</th>
         <th class="right">Geld</th><th class="right">Haft</th><th class="right">Sozial</th>
       </tr>
     </thead>
     <tbody>
-      ${rows.length > 0 ? rows.map(r=>`
+      ${rows.map(r=>`
         <tr>
-          <td><b>${r[0]}</b></td>
+          <td>${r[0]}</td>
           <td>${r[1]}</td>
-          <td class="muted">${r[2]}</td>
+          <td>${r[2]}</td>
           <td class="right">${r[3]} $</td>
-          <td class="right">${r[4]} Min</td>
+          <td class="right">${r[4]}</td>
           <td class="right">${r[5]}</td>
-        </tr>`).join("") : '<tr><td colspan="6" style="text-align:center;padding:20px;">Keine Treffer gefunden...</td></tr>'}
+        </tr>`).join("")}
     </tbody>
   </table>`;
 }
